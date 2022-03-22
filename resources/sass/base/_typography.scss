@@ -1,0 +1,109 @@
+// Open Sans
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap');
+
+* {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 20px;
+}
+
+div, h5, p, span, a, i, button, label, input {
+	font-size: .8rem;
+	color: $black;
+}
+
+a i {
+	font-size: inherit;
+}
+
+a, a:hover, a:focus {
+	text-decoration: none;
+}
+
+h2 {
+	@extend .font-bold;
+	font-size: 1.5rem;
+}
+
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-regular {
+	font-weight: 400;
+}
+
+.font-light {
+	font-weight: 300;
+}
+
+
+.font-size-60 {
+	font-size: .6rem;
+}
+
+.font-size-80 {
+	font-size: .8rem;
+}
+
+.font-size-70 {
+	font-size: .7rem;
+}
+
+.font-size-90 {
+	font-size: .9rem;
+}
+
+.font-size-100 {
+    font-size: 1rem;
+}
+
+.font-size-125 {
+	font-size: 1.25rem;
+}
+
+.font-size-150 {
+	font-size: 1.5rem;
+}
+
+.font-size-200 {
+	font-size: 2rem;
+}
+
+.font-size-250 {
+	font-size: 2.5rem;
+}
+
+.font-size-300 {
+	font-size: 3rem;
+}
+
+.text-grey-dark {
+	color: $black;
+}
+
+.text-blue-dark {
+	color: $darkblue;
+}
+
+.text-blue {
+	color: $blue;
+}
+
+.text-white {
+	color: $white;
+}
+
+.text-grey-dark {
+	color: $darkgray;
+}
+
+.letter-spacing-80 {
+	letter-spacing: .8px;
+}
+
+.overflow-ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
