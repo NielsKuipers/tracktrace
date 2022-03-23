@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Package;
+use App\Models\Pickup;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Package::factory(15)->create();
+        Pickup::factory(5)->create();
     }
 }

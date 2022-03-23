@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pickup', function (Blueprint $table) {
+        Schema::create('pickups', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('package_id')->references('id')->on('packages');
+            $table->string('address');
+            $table->string('zipcode');
+            $table->string('country');
+            $table->dateTime('time');
             $table->timestamps();
         });
     }

@@ -13,21 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('package', function (Blueprint $table) {
+        Schema::create('packages', function (Blueprint $table) {
             $table->id();
-            $table->string('company_name');
-            $table->string('adress');
+            $table->foreignId('company')->references('id')->on('companies');
+            $table->string('name');
             $table->string('zipcode');
+            $table->string('building_number');
+            $table->string('street');
+            $table->string('city');
             $table->string('country');
-            $table->string('receiver_email');
-            $table->string('receiver_name');
-            $table->string('receiver_adress');
-            $table->string('receiver_zipcode');
-            $table->string('receiver_country');
             $table->string('weight');
             $table->string('tracking_code');
             $table->string('status');
-            $table->id('pickup_id')->nullable(true);
             $table->timestamps();
         });
     }
