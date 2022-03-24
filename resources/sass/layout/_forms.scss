@@ -18,4 +18,10 @@ form, .form {
 		height: 300px;
 		resize: vertical;
 	}
+
+    .invalid-feedback {
+        display: inline;
+        font-size: 0.8rem;
+    }
 }
+

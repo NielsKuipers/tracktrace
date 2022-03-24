@@ -16,10 +16,10 @@
                         <div class="row">
                             <div class="col-12 col-md-2 offset-md-2">
                                 <input name="first_name" type="text" placeholder="First name..."
-                                       value="{{ old('name') }}"
-                                       class="@error('name') is-invalid @enderror" required>
+                                       value="{{ old('first_name') }}"
+                                       class="@error('first_name') is-invalid @enderror" required>
                             </div>
-                            @error('name')
+                            @error('first_name')
                             <span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
@@ -27,10 +27,10 @@
 
                             <div class="col-12 col-md-2 offset-md-1">
                                 <input name="last_name" type="text" placeholder="Last name..."
-                                       value="{{ old('lastName') }}"
-                                       class="@error('lastName') is-invalid @enderror" required>
+                                       value="{{ old('last_name') }}"
+                                       class="@error('last_name') is-invalid @enderror" required>
                             </div>
-                            @error('lastName')
+                            @error('last_name')
                             <span class="invalid-feedback" role="alert">
 								<strong>{{ $message }}</strong>
 							</span>
@@ -53,12 +53,13 @@
                                 <input name="password" type="password" placeholder="Password..."
                                        value="{{ old('password') }}"
                                        class="@error('password') is-invalid @enderror" required>
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+								    <strong>{{ $message }}</strong>
+							    </span>
+                                @enderror
                             </div>
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-								<strong>{{ $message }}</strong>
-							</span>
-                            @enderror
                         </div>
 
                         <div class="col-12 col-md-2 offset-md-2">

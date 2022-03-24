@@ -19,7 +19,6 @@ class CompanyFactory extends Factory
         return [
             'name' => $this->faker->company,
             'email' => $this->faker->companyEmail,
-            'password' => $this->faker->sha256,
             'phone' => $this->faker->phoneNumber,
             'zipcode' => $this->faker->postcode,
             'building_number' => $this->faker->buildingNumber,

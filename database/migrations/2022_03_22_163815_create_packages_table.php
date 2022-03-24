@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company')->references('id')->on('companies');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('zipcode');
             $table->string('building_number');
             $table->string('street');

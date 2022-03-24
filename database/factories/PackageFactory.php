@@ -19,7 +19,8 @@ class PackageFactory extends Factory
     {
         return [
             'company' => Company::factory(),
-            'name' => $this->faker->name,
+            'first_name' => $this->faker->firstName,
+            'last_name' => $this->faker->lastName,
             'zipcode' => $this->faker->postcode,
             'building_number' => $this->faker->buildingNumber,
             'street' => $this->faker->streetName,

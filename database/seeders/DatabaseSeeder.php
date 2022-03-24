@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Company;
 use App\Models\Package;
 use App\Models\Pickup;
 use App\Models\User;
@@ -18,12 +19,32 @@ class DatabaseSeeder extends Seeder
     {
         Package::factory(15)->create();
         Pickup::factory(5)->create();
-        User::factory(9)->create();
+        User::factory(4)->create();
 
+        for ($i = 0; $i < 5; $i++) {
+            $company = Company::factory()->create();
+
+            User::factory()->create([
+                'has_company' => $company->id,
+                'role' => 'company_account'
+            ]);
+        }
+
+        //create admin account
         User::factory()->create([
             'email' => 'frankAdmin@hotmail.com',
             'first_name' => 'Frank',
-            'role' => 'admin'
+            'role' => 'admin',
+            'password' => 'mama123'
+        ]);
+
+        //create company account
+        User::factory()->create([
+            'email' => 'frankCompany@hotmail.com',
+            'first_name' => 'Frank',
+            'role' => 'company_account',
+            'has_company' => 1,
+            'password' => 'mama123'
         ]);
     }
 }

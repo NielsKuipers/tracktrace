@@ -11664,6 +11664,10 @@ form textarea, .form textarea {
   height: 300px;
   resize: vertical;
 }
+form .invalid-feedback, .form .invalid-feedback {
+  display: inline;
+  font-size: 0.8rem;
+}
 
 nav {
   height: 70px;

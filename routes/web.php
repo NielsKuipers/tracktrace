@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\PackagesController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +18,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::get('register', [RegisterController::class, 'create'])->name('register');
-Route::post('register', [RegisterController::class, 'store'])->name('register');
+Route::get('register', [RegisterController::class, 'create'])->name('register')->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->name('register')->middleware('guest');
+
+Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
+Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('login');
+Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
+
+Route::get('packages/log', [PackagesController::class, 'create'])->name('packages.log')->middleware('can:company');
