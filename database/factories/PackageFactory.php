@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\enums\PackageStatus;
 use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -28,7 +29,7 @@ class PackageFactory extends Factory
             'country' => $this->faker->country,
             'weight' => $this->faker->numberBetween(50, 10000),
             'tracking_code' => $this->faker->bothify('#?????#########'),
-            'status' => $this->faker->randomElement(['recorded', 'printed', 'received', 'sent', 'delivered'])
+            'status' => PackageStatus::getRandom()
         ];
     }
 }

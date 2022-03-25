@@ -1,5 +1,6 @@
 <?php
 
+use App\enums\PackageStatus;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -24,8 +25,8 @@ return new class extends Migration
             $table->string('city');
             $table->string('country');
             $table->string('weight');
-            $table->string('tracking_code');
-            $table->string('status');
+            $table->string('tracking_code')->nullable()->default(null);
+            $table->string('status')->default(PackageStatus::LOGGED->toString());
             $table->timestamps();
         });
     }

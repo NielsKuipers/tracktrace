@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
             $company = Company::factory()->create();
 
             User::factory()->create([
-                'has_company' => $company->id,
+                'company' => $company->id,
                 'role' => 'company_account'
             ]);
         }
@@ -43,7 +43,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'frankCompany@hotmail.com',
             'first_name' => 'Frank',
             'role' => 'company_account',
-            'has_company' => 1,
+            'company' => 1,
             'password' => 'mama123'
         ]);
     }

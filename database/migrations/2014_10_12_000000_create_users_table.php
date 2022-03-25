@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('first_name');
             $table->string('last_name');
             $table->string('role')->default('customer');
-            $table->foreignId('has_company')->nullable(true)->default(null)->references('id')->on('companies');
+            $table->foreignId('company')->nullable(true)->default(null)->references('id')->on('companies');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();

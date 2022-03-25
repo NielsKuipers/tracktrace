@@ -27,4 +27,9 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest')-
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('login');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
-Route::get('packages/log', [PackagesController::class, 'create'])->name('packages.log')->middleware('can:company');
+Route::group(['middleware' => 'can:company'], function () {
+
+    Route::get('packages/log', [PackagesController::class, 'create'])->name('packages.log')->middleware('can:company');
+    Route::post('packages/log', [PackagesController::class, 'store'])->name('packages.log')->middleware('can:company');
+    Route::get('packages/log/csv', [PackagesController::class, 'createcsv'])->name('packages.log.csv')->middleware('can:company');
+});

@@ -37,7 +37,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('company', function (User $user) {
-            return $user->has_company != null;
+            return $user->company != null;
         });
     }
 }
