@@ -28,6 +28,12 @@
                         </li>
                     @endcanany
 
+                    @can('read/write')
+                        <li class="nav-item">
+                            <a href="{{ route('packages.labels') }}" class="text-light nav-link">Print labels</a>
+                        </li>
+                    @endcan
+
                     <span class="text-light my-auto mx-3 font-size-100">|</span>
 
                     @auth

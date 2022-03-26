@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LabelsController;
 use App\Http\Controllers\PackagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
@@ -29,7 +30,12 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 Route::group(['middleware' => 'can:company'], function () {
 
-    Route::get('packages/log', [PackagesController::class, 'create'])->name('packages.log')->middleware('can:company');
-    Route::post('packages/log', [PackagesController::class, 'store'])->name('packages.log')->middleware('can:company');
-    Route::get('packages/log/csv', [PackagesController::class, 'createcsv'])->name('packages.log.csv')->middleware('can:company');
+    Route::get('packages/log', [PackagesController::class, 'create'])->name('packages.log');
+    Route::post('packages/log', [PackagesController::class, 'store'])->name('packages.log');
+    Route::get('packages/log/csv', [PackagesController::class, 'createcsv'])->name('packages.log.csv');
+});
+
+Route::group(['middleware' => 'can:read/write'], function () {
+
+    Route::get('packages/labels', [LabelsController::class, 'create'])->name('packages.labels');
 });
