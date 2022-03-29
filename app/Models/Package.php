@@ -20,6 +20,6 @@ class Package extends Model
 
     public function company(): BelongsTo
     {
-        return $this->belongsTo(Company::class, 'company');
+        return $this->belongsTo(Company::class, 'company_id');
     }
 }

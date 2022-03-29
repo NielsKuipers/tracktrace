@@ -19,7 +19,7 @@ class PackageFactory extends Factory
     public function definition()
     {
         return [
-            'company' => Company::factory(),
+            'company_id' => Company::factory(),
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
             'zipcode' => $this->faker->postcode,
