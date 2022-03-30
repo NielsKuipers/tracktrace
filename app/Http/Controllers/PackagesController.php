@@ -22,6 +22,13 @@ class PackagesController extends Controller
         ]);
     }
 
+    public function view($id)
+    {
+        return view('packages.view', [
+            'package' => Package::with('company')->where('id', $id)->get()->first()
+        ]);
+    }
+
     public function store()
     {
         if (request()->file() != null) {

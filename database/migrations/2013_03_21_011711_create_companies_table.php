@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('building_number');
             $table->string('street');
             $table->string('city');
+            $table->string('country');
             $table->timestamps();
         });
     }

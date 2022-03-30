@@ -1,4 +1,6 @@
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @import 'abstracts/variables';
 
@@ -9,4 +11,4 @@
 @import "components/inputs";
 
 @import 'layout/forms';
-@import "layout/navigation";
+@import "layout/_navigation";

@@ -8,60 +8,62 @@
 
     <!-- styles -->
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
+    <script src="{{asset('js/app.js')}}" defer></script>
 </head>
 <body>
-<div id="app">
-    <nav class="navbar navbar-expand-md navbar-dark shadow-sm bg-blue-dark py-10px">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="shadow-lg mainNav">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex justify-between">
+            <div class="flex md:flex items-center space-x-1">
+                <div>
+                    <a href="{{route('home')}}" class="py-4 px-2 text-blue-500 font-semibold">Home</a>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-x-1">
+                @canany(['read/write', 'company'])
+                    <a href="{{ route('packages.log') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Register
+                        package</a>
+                @endcanany
+                @can('read/write')
+                    <a href="{{ route('packages.labels') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Print
+                        labels</a>
+                @endcan
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    @canany(['read/write', 'company'])
-                        <li class="nav-item">
-                            <a href="{{ route('packages.log') }}" class="text-light nav-link">Register package</a>
-                        </li>
-                    @endcanany
+                @auth
+                    <a href=""
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Welcome, {{ auth()->user()->first_name }}</a>
 
-                    @can('read/write')
-                        <li class="nav-item">
-                            <a href="{{ route('packages.labels') }}" class="text-light nav-link">Print labels</a>
-                        </li>
-                    @endcan
-
-                    <span class="text-light my-auto mx-3 font-size-100">|</span>
-
-                    @auth
-                        <li class="nav-item">
-                            <a href="" class="text-light nav-link">Welcome, {{ auth()->user()->first_name }}</a>
-                        </li>
-
-                        <form method="POST" action="{{route('logout')}}">
-                            @csrf
-                            <button type="submit">Log out</button>
-                        </form>
-                    @else
-                        <li class="nav-item">
-                            <a href="{{route('login')}}" class="text-light nav-link">Login</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a href="{{route('register')}}" class="text-light nav-link">Register</a>
-                        </li>
-                    @endauth
-                </ul>
+                    <form method="POST" action="{{route('logout')}}">
+                        @csrf
+                        <button type="submit"
+                                class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">
+                            Log out
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Login</a>
+                    <a href="{{ route('register') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Register</a>
+                @endauth
+            </div>
+            <div class="mr-10 flex md:hidden">
+                <button class="inline-flex items-center justify-center p-2 rounded-md text-dark">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em"
+                         width="1em" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z">
+                        </path>
+                    </svg>
+                </button>
             </div>
         </div>
-    </nav>
-
-    <main>
-        @yield('content')
-    </main>
-</div>
+    </div>
+</nav>
+<main>
+    @yield('content')
+</main>
 </body>
 </html>

@@ -16,7 +16,14 @@ class LabelsController extends Controller
         ]);
     }
 
-    public function generateLabel()
+    public function store()
+    {
+        foreach (request()->input('toPrint') as $item) {
+            $this->generateLabel($item->value);
+        }
+    }
+
+    public function generateLabel($packageId)
     {
         Bus::chain([
             new ProcessBrowsershot('http://localhost:80/api/packages/labels'),

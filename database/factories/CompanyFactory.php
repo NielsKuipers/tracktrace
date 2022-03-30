@@ -24,6 +24,7 @@ class CompanyFactory extends Factory
             'building_number' => $this->faker->buildingNumber,
             'street' => $this->faker->streetName,
             'city' => $this->faker->city,
+            'country' => $this->faker->country
         ];
     }
 }
