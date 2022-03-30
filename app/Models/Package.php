@@ -18,6 +18,11 @@ class Package extends Model
         return $this->hasOne(Pickup::class);
     }
 
+    public function label(): HasOne
+    {
+        return $this->hasOne(Label::class);
+    }
+
     public function company(): BelongsTo
     {
         return $this->belongsTo(Company::class, 'company_id');
