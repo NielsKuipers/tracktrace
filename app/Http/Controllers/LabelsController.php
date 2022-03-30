@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\enums\PackageStatus;
 use App\Jobs\ProcessBrowsershot;
+use App\Models\Label;
 use App\Models\Package;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Bus;
@@ -20,11 +22,9 @@ class LabelsController extends Controller
 
     public function store()
     {
-        $this->generateLabel(request()->input('toPrint')[0]);
-
-//        foreach (request()->input('toPrint') as $item) {
-//            $this->generateLabel($item);
-//        }
+        foreach (request()->input('toPrint') as $item) {
+            $this->generateLabel($item);
+        }
     }
 
     public function view($id)
@@ -39,8 +39,7 @@ class LabelsController extends Controller
 
     public function generateLabel($packageId)
     {
-        Bus::chain([
-            new ProcessBrowsershot('http://localhost:80/packages/label/' . $packageId),
-        ])->dispatch();
+        Package::where('id', $packageId)->update(['status' => PackageStatus::PRINTED->toString()]);
+        ProcessBrowsershot::dispatch('http://localhost:80/packages/label/', $packageId);
     }
 }

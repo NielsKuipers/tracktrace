@@ -10,7 +10,7 @@ class Label extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['package_id'];
+    protected $guarded = [];
 
     public function package(): BelongsTo
     {
