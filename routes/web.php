@@ -35,8 +35,10 @@ Route::group(['middleware' => 'can:company'], function () {
 });
 
 Route::group(['middleware' => 'can:read/write'], function () {
-    Route::get('packages/labels', [LabelsController::class, 'create'])->name('packages.labels');
+    Route::get('packages/labels', [LabelsController::class, 'viewAll'])->name('packages.labels');
+    Route::get('packages/labels/print', [LabelsController::class, 'create'])->name('packages.labels.print');
     Route::post('packages/labels', [LabelsController::class, 'store'])->name('packages.labels.print');
+    Route::post('packages/labels', [LabelsController::class, 'labelToPDF'])->name('packages.labels.toPDF');
 });
 
 //TODO: add middleware this is just for puppeteer for now

@@ -28,6 +28,8 @@
                 @endcanany
                 @can('read/write')
                     <a href="{{ route('packages.labels') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Labels</a>
+                    <a href="{{ route('packages.labels.print') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Print
                         labels</a>
                 @endcan
@@ -62,7 +64,7 @@
         </div>
     </div>
 </nav>
-<main>
+<main class="mb-1">
     @yield('content')
 </main>
 </body>
