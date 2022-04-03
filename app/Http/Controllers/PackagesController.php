@@ -56,12 +56,14 @@ class PackagesController extends Controller
 
         if ($currentTime > $lockout)
             throw ValidationException::withMessages(['time' => 'Time has to be set before 3:00 PM on the day before the date']);
+        if (!request()->has('toProcess'))
+            throw ValidationException::withMessages(['packages' => 'Please select packages to process']);
 
         foreach (request()->input('toProcess') as $item) {
             $attributes['package_id'] = $item;
             Pickup::create($attributes);
         }
-        
+
         Package::whereIn('id', request()->input('toProcess'))->update(['status' => PackageStatus::SORTING->toString()]);
 
         return redirect(route('packages.pickup'))->with('success', 'Pickup successfully created');

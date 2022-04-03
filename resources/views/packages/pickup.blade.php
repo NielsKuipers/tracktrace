@@ -138,6 +138,11 @@
                     </div>
                 </div>
                 <div class="relative flex lg:inline-flex items-center py-1 ml-auto">
+                    @error('packages')
+                    <span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+                    @enderror
                     <button type="submit"
                             class="bg-blue-500 rounded-lg font-bold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600">
                         Confirm pickup
