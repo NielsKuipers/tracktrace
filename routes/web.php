@@ -4,6 +4,7 @@ use App\Http\Controllers\LabelsController;
 use App\Http\Controllers\PackagesController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\TrackingController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,6 +28,12 @@ Route::post('register', [RegisterController::class, 'store'])->name('register')-
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest')->name('login');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest')->name('login');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
+
+Route::group(['middleware' => 'can:user'], function () {
+    Route::get('tracked', [TrackingController::class, 'index'])->name('tracking.index');
+    Route::get('tracked/create', [TrackingController::class, 'create'])->name('tracking.create');
+    Route::post('tracked/store', [TrackingController::class, 'store'])->name('tracking.store');
+});
 
 Route::group(['middleware' => 'can:company'], function () {
     //package routes

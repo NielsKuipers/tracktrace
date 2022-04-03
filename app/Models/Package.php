@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Http\Controllers\TrackingController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -44,5 +45,10 @@ class Package extends Model
     function company(): BelongsTo
     {
         return $this->belongsTo(Company::class, 'company_id');
+    }
+
+    public function trackingCode(): HasOne
+    {
+        return $this->hasOne(TrackingCode::class);
     }
 }

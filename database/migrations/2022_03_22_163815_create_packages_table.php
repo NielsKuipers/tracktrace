@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('city');
             $table->string('country');
             $table->string('weight');
-            $table->string('tracking_code')->nullable()->default(null);
             $table->string('status')->default(PackageStatus::LOGGED->toString());
             $table->timestamps();
         });

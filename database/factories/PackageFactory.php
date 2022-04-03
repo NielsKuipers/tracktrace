@@ -28,7 +28,6 @@ class PackageFactory extends Factory
             'city' => $this->faker->city,
             'country' => $this->faker->country,
             'weight' => $this->faker->numberBetween(50, 10000),
-            'tracking_code' => $this->faker->bothify('#?????#########'),
             'status' => PackageStatus::getRandom()
         ];
     }

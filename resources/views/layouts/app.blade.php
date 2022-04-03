@@ -31,12 +31,19 @@
                 @endcanany
                 @can('read/write')
                     <a href="{{ route('packages.pickup') }}"
-                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Plan pickups</a>
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Plan
+                        pickups</a>
                     <a href="{{ route('packages.labels') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Labels</a>
                     <a href="{{ route('packages.labels.print') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Print
                         labels</a>
+                @endcan
+
+                @can('user')
+                    <a href="{{ route('tracking.create') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Track
+                        package</a>
                 @endcan
 
                 @auth
