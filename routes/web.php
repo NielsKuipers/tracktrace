@@ -29,16 +29,22 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest')-
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth')->name('logout');
 
 Route::group(['middleware' => 'can:company'], function () {
+    //package routes
     Route::get('packages/log', [PackagesController::class, 'create'])->name('packages.log');
     Route::post('packages/log', [PackagesController::class, 'store'])->name('packages.log');
-    Route::get('packages/log/csv', [PackagesController::class, 'createcsv'])->name('packages.log.csv');
+    Route::get('packages/log/csv', [PackagesController::class, 'createCSV'])->name('packages.log.csv');
 });
 
 Route::group(['middleware' => 'can:read/write'], function () {
+    //label routes
     Route::get('packages/labels', [LabelsController::class, 'viewAll'])->name('packages.labels');
     Route::get('packages/labels/print', [LabelsController::class, 'create'])->name('packages.labels.print');
     Route::post('packages/labels', [LabelsController::class, 'store'])->name('packages.labels.print');
     Route::post('packages/labels', [LabelsController::class, 'labelToPDF'])->name('packages.labels.toPDF');
+
+    //package routes
+    Route::get('packages/pickup', [PackagesController::class, 'createPickup'])->name('packages.pickup');
+    Route::post('packages/pickup', [PackagesController::class, 'storePickup'])->name('packages.pickup.store');
 });
 
 //TODO: add middleware this is just for puppeteer for now

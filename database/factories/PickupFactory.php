@@ -19,9 +19,9 @@ class PickupFactory extends Factory
     {
         return [
             'package_id' => Package::factory(),
-            'address' => $this->faker->address,
             'zipcode' => $this->faker->postcode,
-            'country' => 'The Netherlands',
+            'building_nr' => $this->faker->buildingNumber,
+            'country' => $this->faker->country,
             'time' => $this->faker->dateTime,
         ];
     }

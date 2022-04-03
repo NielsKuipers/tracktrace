@@ -10,6 +10,8 @@ class Pickup extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function package(): BelongsTo
     {
         return $this->belongsTo(Package::class);

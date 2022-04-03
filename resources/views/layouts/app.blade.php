@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <script src="{{asset('js/app.js')}}" defer></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/flatpickr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.9/themes/airbnb.min.css">
 </head>
 <body>
 <nav class="shadow-lg mainNav">
@@ -27,6 +30,8 @@
                         package</a>
                 @endcanany
                 @can('read/write')
+                    <a href="{{ route('packages.pickup') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Plan pickups</a>
                     <a href="{{ route('packages.labels') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Labels</a>
                     <a href="{{ route('packages.labels.print') }}"
