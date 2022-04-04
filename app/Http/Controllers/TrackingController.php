@@ -50,9 +50,11 @@ class TrackingController extends Controller
             'code' => ['required', 'string']
         ]);
 
+        //check if tracking code is valid
         if (!$code = TrackingCode::where('tracking_code', request()->input('code'))->first())
             throw ValidationException::withMessages(['code' => 'Please enter a valid code']);
-        else {
+        //if code isn't already linked to user
+        elseif (UserTrackingCode::where(['package_id' => $code->package_id, 'user_id' => request()->user()->id])->doesntExist()) {
             UserTrackingCode::create([
                 'package_id' => $code->package_id,
                 'user_id' => request()->user()->id
