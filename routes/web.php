@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BusinessController;
 use App\Http\Controllers\LabelsController;
 use App\Http\Controllers\PackagesController;
 use App\Http\Controllers\RegisterController;
@@ -54,6 +55,8 @@ Route::group(['middleware' => 'can:read/write'], function () {
     //package routes
     Route::get('packages/pickup', [PackagesController::class, 'createPickup'])->name('packages.pickup');
     Route::post('packages/pickup', [PackagesController::class, 'storePickup'])->name('packages.pickup.store');
+
+    Route::get('business/customers', [BusinessController::class, 'index'])->name('business.index');
 });
 
 //TODO: add middleware this is just for puppeteer for now

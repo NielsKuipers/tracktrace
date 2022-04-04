@@ -39,6 +39,10 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        User::factory(25)->create([
+            'role' => 'customer'
+        ]);
+
         //create admin account
         User::factory()->create([
             'email' => 'frankAdmin@hotmail.com',

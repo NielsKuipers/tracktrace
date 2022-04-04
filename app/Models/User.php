@@ -30,6 +30,18 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['search'] ?? false, fn($query, $search) => $query->where(fn($query) => $query->where('email', 'like', '%' . $search . '%')
+            ->orWhere('first_name', 'like', '%' . $search . '%')
+            ->orWhere('last_name', 'like', '%' . $search . '%')
+        ));
+
+        $query->when($filters['sort'] ?? false, fn($query, $sort) => $query
+            ->orderBy($sort, $filters['order'])
+        );
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -41,6 +53,6 @@ class User extends Authenticatable
 
     public function setPasswordAttribute($password)
     {
-       $this->attributes['password'] = bcrypt($password);
+        $this->attributes['password'] = bcrypt($password);
     }
 }

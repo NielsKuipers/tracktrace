@@ -38,6 +38,8 @@
                     <a href="{{ route('packages.labels.print') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Print
                         labels</a>
+                    <a href="{{ route('business.index') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Customers</a>
                 @endcan
 
                 @can('user')
