@@ -24,7 +24,8 @@ class TrackingController extends Controller
     public function show($id)
     {
         return view('tracking.show', [
-            'package' => Package::with(['company', 'trackingCode'])->where('id', $id)->get()->first()
+            'package' => Package::with(['company', 'trackingCode'])->where('id', $id)->get()->first(),
+            'reviewed' => Review::where(['package_id' => $id, 'user_id' => request()->user()->id])
         ]);
     }
 

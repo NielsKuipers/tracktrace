@@ -19,7 +19,7 @@
 
             <div class="spacer"></div>
 
-            @if($package->status == \App\enums\PackageStatus::FINISHED->toString())
+            @if($package->status == \App\enums\PackageStatus::FINISHED->toString() && !$reviewed)
                 <form action="{{route('tracking.review', [$package->id])}}" method="POST">
                     @csrf
                     <div class="relative z-0 mb-6 w-full">
