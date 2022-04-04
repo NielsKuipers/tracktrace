@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class BusinessController extends Controller
+class CustomersController extends Controller
 {
     public function index()
     {
@@ -13,7 +13,7 @@ class BusinessController extends Controller
         if (request()->query('order') == 'asc')
             $dir = 'desc';
 
-        return view('business.index', [
+        return view('customers.index', [
             'customers' => User::where('role', 'customer')->filter(request(['search', 'sort', 'order']))->paginate(9),
             'dir' => $dir
         ]);

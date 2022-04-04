@@ -16,16 +16,19 @@ class Package extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        $query->when($filters['search'] ?? false, fn($query, $search) => $query
-            ->whereHas('company', function ($query) use ($search) {
-                $query->where('name', 'like', '%' . $search . '%');
-            })
+        $query->when($filters['search'] ?? false, fn($query, $search) => $query->where(fn($query) => $query->whereHas('company', function ($query) use ($search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        })
             ->orWhere('first_name', 'like', '%' . $search . '%')
             ->orWhere('last_name', 'like', '%' . $search . '%')
             ->orWhere('zipcode', 'like', '%' . $search . '%')
             ->orWhere('street', 'like', '%' . $search . '%')
             ->orWhere('city', 'like', '%' . $search . '%')
             ->orWhere('country', 'like', '%' . $search . '%')
+        ));
+
+        $query->when($filters['sort'] ?? false, fn($query, $sort) => $query
+            ->orderBy($sort, $filters['order'])
         );
     }
 

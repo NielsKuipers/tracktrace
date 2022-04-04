@@ -30,6 +30,8 @@
                         package</a>
                 @endcanany
                 @can('read/write')
+                    <a href="{{ route('packages.index') }}"
+                       class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Packages</a>
                     <a href="{{ route('packages.pickup') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Plan
                         pickups</a>
@@ -38,7 +40,7 @@
                     <a href="{{ route('packages.labels.print') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Print
                         labels</a>
-                    <a href="{{ route('business.index') }}"
+                    <a href="{{ route('customers.index') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Customers</a>
                 @endcan
 

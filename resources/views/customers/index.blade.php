@@ -20,25 +20,25 @@
                             <tr>
                                 <th scope="col"
                                     class="text-left py-3">
-                                    <a href="/business/customers/?sort=id&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=id&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         #
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class=" text-left">
-                                    <a href="/business/customers/?sort=email&{{ http_build_query(request()->except('search')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=email&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         E-mail
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="/business/customers/?sort=first_name&{{ http_build_query(request()->except('search')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=first_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         First name
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="/business/customers/?sort=last_name&{{ http_build_query(request()->except('search')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=last_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Last name
                                     </a>
                                 </th>

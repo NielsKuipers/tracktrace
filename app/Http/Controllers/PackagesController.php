@@ -30,6 +30,18 @@ class PackagesController extends Controller
         ]);
     }
 
+    public function index()
+    {
+        $dir = 'asc';
+        if (request()->query('order') == 'asc')
+            $dir = 'desc';
+
+        return view('packages.index', [
+            'packages' => Package::where('status', PackageStatus::SENT->toString())->filter(request(['search', 'sort', 'order']))->paginate(9),
+            'dir' => $dir
+        ]);
+    }
+
     public function createPickup()
     {
         return view('packages.pickup', [
