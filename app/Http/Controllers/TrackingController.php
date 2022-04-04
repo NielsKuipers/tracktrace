@@ -59,6 +59,6 @@ class TrackingController extends Controller
             ]);
         }
 
-//        return redirect(route(''))->with('success', 'Pickup successfully created');
+        return redirect(route('tracking.show', $code->package_id));
     }
 }
