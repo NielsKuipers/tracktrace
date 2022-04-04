@@ -31,8 +31,10 @@ Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth'
 
 Route::group(['middleware' => 'can:user'], function () {
     Route::get('tracked', [TrackingController::class, 'index'])->name('tracking.index');
+    Route::get('tracked/package/{id}', [TrackingController::class, 'show'])->name('tracking.show');
     Route::get('tracked/create', [TrackingController::class, 'create'])->name('tracking.create');
     Route::post('tracked/store', [TrackingController::class, 'store'])->name('tracking.store');
+    Route::post('tracked/review/{id}', [TrackingController::class, 'review'])->name('tracking.review');
 });
 
 Route::group(['middleware' => 'can:company'], function () {
