@@ -6,7 +6,7 @@
             <div class="relative flex lg:inline-flex items-center py-1">
                 <p class="text-2xl mr-auto font-bold">Customers</p>
                 <form method="get" action="#">
-                    <input type="text" name="search" placeholder="Search..."
+                    <input type="text" name="search" placeholder="Search..." id="search"
                            class="bg-transparent placeholder-black font-semibold text-sm"
                            value="{{ request('search') }}">
                 </form>
@@ -20,25 +20,25 @@
                             <tr>
                                 <th scope="col"
                                     class="text-left py-3">
-                                    <a href="?sort=id&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=id&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="id_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         #
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class=" text-left">
-                                    <a href="?sort=email&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=email&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="email_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         E-mail
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="?sort=first_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=first_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="first_name_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         First name
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="?sort=last_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=last_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="last_name_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Last name
                                     </a>
                                 </th>

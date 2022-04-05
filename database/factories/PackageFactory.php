@@ -27,7 +27,7 @@ class PackageFactory extends Factory
             'street' => $this->faker->streetName,
             'city' => $this->faker->city,
             'country' => $this->faker->country,
-            'weight' => $this->faker->numberBetween(50, 10000),
+            'weight' => $this->faker->numberBetween(1, 1000),
             'status' => PackageStatus::getRandom()
         ];
     }

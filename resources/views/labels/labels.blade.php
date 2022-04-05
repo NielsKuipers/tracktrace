@@ -6,7 +6,7 @@
         <div class="flex flex-col">
             <div class="relative flex lg:inline-flex items-center py-1 ml-auto">
                 <form method="get" action="#">
-                    <input type="text" name="search" placeholder="Search..."
+                    <input type="text" name="search" placeholder="Search..." id="search"
                            class="bg-transparent placeholder-black font-semibold text-sm"
                            value="{{ request('search') }}">
                 </form>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="relative flex lg:inline-flex items-center py-1 ml-auto">
-                    <button type="submit"
+                    <button type="submit" id="toPdf"
                             class="bg-blue-500 rounded-lg font-bold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600">
                         To PDF
                     </button>

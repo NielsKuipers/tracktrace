@@ -1,6 +1,7 @@
 @extends('layouts.app', ['title' => 'Labels'])
 
 @section('content')
+    @component("components.alerts") @endcomponent
     <div class="max-w-2xl mx-auto">
         <div class="flex flex-col">
             <div class="overflow-x-auto shadow-md sm:rounded-lg">
@@ -46,7 +47,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            <button type="submit">print</button>
+                            <button type="submit" id="print">print</button>
                         </form>
                     </div>
                 </div>

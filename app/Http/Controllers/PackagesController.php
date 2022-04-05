@@ -62,12 +62,18 @@ class PackagesController extends Controller
             'country' => ['required', 'string']
         ]);
 
-        $currentTime = new DateTime('now', new DateTimeZone('Europe/Amsterdam'));
-        $lockout = new DateTime('now', new DateTimeZone('Europe/Amsterdam'));
-        date_time_set($lockout, 15, 00);
+        $dt = Carbon::parse(request()->input('time'));
 
-        if ($currentTime > $lockout)
-            throw ValidationException::withMessages(['time' => 'Time has to be set before 3:00 PM on the day before the date']);
+        if($today->day + 1 >= $dt->day)
+        {
+            $currentTime = new DateTime('now', new DateTimeZone('Europe/Amsterdam'));
+            $lockout = new DateTime('now', new DateTimeZone('Europe/Amsterdam'));
+            date_time_set($lockout, 15, 00);
+
+            if ($currentTime > $lockout)
+                throw ValidationException::withMessages(['time' => 'Time has to be set before 3:00 PM on the day before the date']);
+        }
+
         if (!request()->has('toProcess'))
             throw ValidationException::withMessages(['packages' => 'Please select packages to process']);
 

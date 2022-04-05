@@ -1,5 +1,6 @@
 @extends('layouts.app', ['title' => 'Track n trace'])
 @section('content')
+    @component("components.alerts") @endcomponent
     <div class="max-w-2xl mx-auto">
         <div class="flex flex-col align-middle items-center">
             <p class="">Track n trace code</p>
@@ -26,7 +27,7 @@
                         <p class="text-3xl text-grey-dark leading-loose w-full">How would you rate this delivery?</p>
                     </div>
                     <div class="relative z-0 mb-6 w-full group">
-                        <input type="number" min="1" max="5" name="rating"
+                        <input type="number" min="1" max="5" name="rating" id="rating"
                                class="block py-2.5 px-0 w-10 text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                placeholder=" " required/>
                         <label for="rating"
@@ -40,7 +41,7 @@
                     </div>
 
                     <div class="relative z-0 mb-6 w-full group">
-                        <textarea name="comment"
+                        <textarea name="comment" id="comment"
                                   class="block height-100 py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                                   placeholder=" ">
                         </textarea>
@@ -53,7 +54,7 @@
                         </span>
                         @enderror
                     </div>
-                    <button type="submit"
+                    <button type="submit" id="review"
                             class="bg-blue-500 rounded-lg font-bold text-white text-center px-4 py-3 transition duration-300 ease-in-out hover:bg-blue-600">
                         Submit review
                     </button>

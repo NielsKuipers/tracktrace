@@ -20,43 +20,43 @@
                             <tr>
                                 <th scope="col"
                                     class="text-left py-3">
-                                    <a href="?sort=id&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=id&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="id_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         #
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left py-3">
-                                    <a href="?sort=company.name&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=company.name&order={{ $dir }}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="company_name_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Company name
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class=" text-left">
-                                    <a href="?sort=first_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=first_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="first_name_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         First name
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class=" text-left">
-                                    <a href="?sort=last_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=last_name&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="last_name_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Last name
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="?sort=street&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=street&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="street_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Street
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="?sort=zipcode&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=zipcode&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="zipcode_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Zipcode
                                     </a>
                                 </th>
                                 <th scope="col"
                                     class="text-left">
-                                    <a href="?sort=country&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
+                                    <a href="?sort=country&order={{$dir}}&{{ http_build_query(request()->except('sort', 'search', 'order')) }}" id="country_header" class="py-3 px-4 text-xs font-medium tracking-wider ext-gray-700 uppercase dark:text-gray-400">
                                         Country
                                     </a>
                                 </th>

@@ -6,7 +6,7 @@
         <div class="flex flex-col">
             <div class="relative flex lg:inline-flex items-center py-1 ml-auto">
                 <form method="get" action="#">
-                    <input type="text" name="search" placeholder="Search..."
+                    <input type="text" name="search" id="search" placeholder="Search..."
                            class="bg-transparent placeholder-black font-semibold text-sm"
                            value="{{ request('search') }}">
                 </form>

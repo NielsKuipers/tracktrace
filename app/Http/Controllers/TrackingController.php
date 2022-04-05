@@ -7,8 +7,9 @@ use App\Models\Package;
 use App\Models\Review;
 use App\Models\TrackingCode;
 use App\Models\UserTrackingCode;
-use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Response;
+
 
 class TrackingController extends Controller
 {
@@ -23,9 +24,13 @@ class TrackingController extends Controller
 
     public function show($id)
     {
+        if (!UserTrackingCode::where(['package_id' => $id, 'user_id' => \request()->user()->id])->exists()) {
+            abort(401);
+        }
+
         return view('tracking.show', [
             'package' => Package::with(['company', 'trackingCode'])->where('id', $id)->get()->first(),
-            'reviewed' => Review::where(['package_id' => $id, 'user_id' => request()->user()->id])
+            'reviewed' => Review::where(['package_id' => $id, 'user_id' => request()->user()->id])->exists()
         ]);
     }
 
@@ -42,6 +47,8 @@ class TrackingController extends Controller
             'rating' => request()->input('rating'),
             'comment' => request()->input('comment')
         ]);
+
+        return redirect(route('tracking.show', $id))->with('success', 'Transaction reviewed successfully!');
     }
 
     public function store()

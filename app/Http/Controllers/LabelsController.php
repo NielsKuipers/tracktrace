@@ -27,6 +27,8 @@ class LabelsController extends Controller
         foreach (request()->input('toPrint') as $item) {
             $this->generateLabel($item);
         }
+
+        return redirect(route('packages.labels.print'))->with('success', 'Label(s) successfully created');
     }
 
     public function view($id): View
@@ -58,7 +60,7 @@ class LabelsController extends Controller
     {
         $ids = request()->input('toProcess');
         $labels = Label::whereIn('package_id', $ids)->get();
-        $htmlstring = '';
+        $htmlstring = '<h1>Labels PDF</h1> <br> <br>';
 
         foreach ($labels as $label) {
             $htmlstring = $htmlstring . '<img src="data:image/png;base64,' . $label->label_image . '"/> <br><br>';

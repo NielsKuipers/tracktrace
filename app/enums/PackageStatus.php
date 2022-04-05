@@ -26,6 +26,11 @@ enum PackageStatus
     public static function getRandom(): string
     {
         $arr = self::cases();
-        return $arr[array_rand($arr)]->toString();
+        $random = $arr[array_rand($arr)];
+
+        if($random == self::LOGGED)
+            $random = self::PRINTED;
+
+        return $random->toString();
     }
 }
