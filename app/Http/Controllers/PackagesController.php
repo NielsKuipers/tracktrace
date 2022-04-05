@@ -105,7 +105,7 @@ class PackagesController extends Controller
             'weight' => ['required'],
         ]);
 
-        $company = ['company_id' => Auth::user()->company];
+        $company = ['company_id' => Auth::user()->company_id];
         $result = array_merge($attributes, $company);
 
         Package::create($result);
