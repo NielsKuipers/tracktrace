@@ -25,7 +25,7 @@
             </div>
             <div class="hidden md:flex items-center space-x-1">
                 @canany(['read/write', 'company'])
-                    <a href="{{ route('packages.log') }}"
+                    <a href="{{ route('packages.log.csv') }}"
                        class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-500 transition duration-300">Register
                         package</a>
                 @endcanany

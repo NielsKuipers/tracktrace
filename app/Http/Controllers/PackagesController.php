@@ -105,11 +105,30 @@ class PackagesController extends Controller
             'weight' => ['required'],
         ]);
 
-        $company = ['company' => Auth::user()->company];
+        $company = ['company_id' => Auth::user()->company];
         $result = array_merge($attributes, $company);
 
         Package::create($result);
         return redirect(route('packages.log'))->with('success', 'Package successfully added');
+    }
+
+    public function storeAPI()
+    {
+        $attributes = request()->validate([
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'country' => ['required'],
+            'zipcode' => ['required'],
+            'building_number' => ['required'],
+            'street' => ['required'],
+            'city' => ['required'],
+            'weight' => ['required'],
+            'company_id' => ['required', 'integer']
+        ]);
+
+        Package::create($attributes);
+
+        return response('Package created', 201);
     }
 
     private function parseCSV($filepath)
@@ -118,15 +137,22 @@ class PackagesController extends Controller
         $header = fgetcsv($file);
         $header[0] = preg_replace('/[\x00-\x1F\x80-\xFF]/', '', $header[0]);
         $result = array();
-        $company = Auth::user()->company;
 
         $i = 0;
         while ($row = fgetcsv($file)) {
             $result[] = array_combine($header, $row);
-            $result[$i] = array_merge($result[$i], ['company' => $company, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
+            $result[$i] = array_merge($result[$i], ['created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')]);
             $i++;
         }
 
         Package::insert($result);
+    }
+
+    public function updateStatus($id)
+    {
+        $status = request()->input('status');
+        Package::where('id', $id)->update(['status' => $status]);
+
+        return response('Update successful!', 201);
     }
 }

@@ -60,5 +60,4 @@ Route::group(['middleware' => 'can:read/write'], function () {
     Route::get('customers', [CustomersController::class, 'index'])->name('customers.index');
 });
 
-//TODO: add middleware this is just for puppeteer for now
 Route::get('packages/label/{id}', [LabelsController::class, 'view'])->name('packages.view');
