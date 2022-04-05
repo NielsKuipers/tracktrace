@@ -20,7 +20,7 @@
         <div class="flex justify-between">
             <div class="flex md:flex items-center space-x-1">
                 <div>
-                    <a href="{{route('home')}}" class="py-4 px-2 text-blue-500 font-semibold">Home</a>
+                    <a href="{{route('/')}}" class="py-4 px-2 text-blue-500 font-semibold">Home</a>
                 </div>
             </div>
             <div class="hidden md:flex items-center space-x-1">

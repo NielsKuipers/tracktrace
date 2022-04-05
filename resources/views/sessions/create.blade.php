@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="col-12 col-md-2 offset-md-2">
-                    <button type="submit" class="btn btn-primary">
+                    <button name="login" type="submit" class="btn btn-primary">
                         Log in
                     </button>
                 </div>

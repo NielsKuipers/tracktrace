@@ -23,7 +23,7 @@ class SessionsController extends Controller
         if(auth()->attempt($attributes))
         {
             session()->regenerate();
-            return redirect('home')->with('success', 'Successfully logged in!');
+            return redirect('/')->with('success', 'Successfully logged in!');
         }
 
         throw ValidationException::withMessages(['email' => 'Email or password is incorrect.']);
@@ -33,6 +33,6 @@ class SessionsController extends Controller
     {
         auth()->logout();
 
-        return redirect(route('home'))->with('success', 'Successfully logged out!');
+        return redirect(route('/'))->with('success', 'Successfully logged out!');
     }
 }

@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('home');
+})->name('/');
 
 Route::get('register', [RegisterController::class, 'create'])->name('register')->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->name('register')->middleware('guest');
